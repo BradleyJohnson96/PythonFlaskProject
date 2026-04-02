@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OSRS Item Tracker</title>
+</head>
+
+<body>
+
+
+    <h2>OSRS Item Tracker</h2>
+    <a href="/">Home</a>
+    <a href="/data">Data</a>
+    <a href="/display"></a>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% block body %}
+
+
+    {% endblock %}
+
+</body>
+
+</html>
