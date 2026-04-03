@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<h2>List of all Items</h2>
+<ul>
+    {% for name, item in items.items() %}
+    <li>{{ name }}:
+        {% for key, value in item.items() %}
+        {% if key == 'img' %}
+        <image src="{{file_location}}/{{value}}"></image>
+        {% else %}
+        <span>{{key}} : {{value}}</span>
+        {% endif %}
+
+        {% endfor %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

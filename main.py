@@ -13,14 +13,37 @@ file_save_location = "static/images"
 
 @app.route('/')
 def homePage():
-    
+    if "items" not in session:
+        flash("Welcome to the site, please add a item to get started!!")
+    return render_template("main.html")
 
-@app.route('/ItemCollection'):
-    def displayItems():
-    
+@app.route('/itemDisplay')
+def displayItems():
+    return render_template('item.html')
 
-@app.route('/addItem', methods=['POST']):
-    def 
+@app.route('/addItem', methods=['POST'])
+def itemInput():
+    item_name = request.form['item']
+    boss_name = request.form['boss_name']
+    drop_rate = request.form['drop_rate']
+    kill_count = request.form['kill_count']
+    file = request.files['item_img']
+    if file.filename != '':
+        save_file_name = os.path.join(file_save_location, file.filename)
+        file.save(save_file_name)
 
-@app.route('/removeItems'):
-   def 
+    if "items" in session:
+        session["items"][item_name] = {'boss_name':boss_name, 'drop_rate':drop_rate, 'kill_count':kill_count, 'img':file.filename}
+    else:
+        session["items"] = {}
+        session["items"][item_name] = {'boss_name': boss_name, 'drop_rate': drop_rate, 'kill_count': kill_count, 'img':file.filename}
+
+    flash(f"item {item_name} added!!")
+    return render_template('item.html')
+
+@app.route('/removeItems')
+def remove():
+    pass
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')

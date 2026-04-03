@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<h3>Enter the item you'd like to add.</h3>
+<form method="post" action="/addItem" enctype="multipart/form-data">
+    <p>Item Name</p>
+    <input type="text" name="item" required>
+    <br><br>
+    <p>Boss Name</p>
+    <input type="text" name="boss" required>
+    <br><br>
+    <p>Drop Rate</p>
+    <input type="text" name="drop_rate" required>
+    <br><br>
+    <p>Kill Count</p>
+    <input type="text" name="kill_count" required>
+    <br><br>
+    <input type="file" name="game_img" required>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
