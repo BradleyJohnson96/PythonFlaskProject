@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 app.config['SESSION_PERMANENT'] = True
 app.config['SESSION_TYPE'] = "filesystem"
+app.secret_key = 'your_secret_key'
 
 Session(app)
 
@@ -19,7 +20,11 @@ def homePage():
 
 @app.route('/itemDisplay')
 def displayItems():
-    return render_template('item.html')
+    return render_template('itemDisplay.html', items=session.get("items", {}), file_location="/static/images")
+
+@app.route('/addItem')
+def addItem():
+    return render_template('addItem.html')
 
 @app.route('/addItem', methods=['POST'])
 def itemInput():
@@ -38,8 +43,8 @@ def itemInput():
         session["items"] = {}
         session["items"][item_name] = {'boss_name': boss_name, 'drop_rate': drop_rate, 'kill_count': kill_count, 'img':file.filename}
 
-    flash(f"item {item_name} added!!")
-    return render_template('item.html')
+    flash(f"{item_name} has been added!!")
+    return render_template('itemDisplay.html', items=session.get("items", {}), file_location="/static/images")
 
 @app.route('/removeItems')
 def remove():

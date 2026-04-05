@@ -7,7 +7,7 @@
     <li>{{ name }}:
         {% for key, value in item.items() %}
         {% if key == 'img' %}
-        <image src="{{file_location}}/{{value}}"></image>
+        <img src="{{file_location}}/{{value}}">
         {% else %}
         <span>{{key}} : {{value}}</span>
         {% endif %}
