@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<h3>Remove an item from your collection</h3>
+
+{% if items %}
+<p>Type the item name you would like to remove.</p>
+
+<form method="POST" action="/removeItems">
+    <label for="item_name">Item name to delete:</label><br>
+    <input type="text" id="item_name" name="item_name" placeholder="Example: Dragon Sword" required>
+    <br><br>
+    <input type="submit" value="Remove Item">
+</form>
+
+<h4>Current items in collection:</h4>
+<ul>
+    {% for name, item in items.items() %}
+    <li><strong>{{ name }}</strong> - Boss: {{ item.boss_name }}, Drop Rate: {{ item.drop_rate }}, Kill Count: {{
+        item.kill_count }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Add an item first before removing!</p>
+{% endif %}
+{% endblock %}
