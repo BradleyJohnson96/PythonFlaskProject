@@ -59,7 +59,6 @@ def removeItems():
     if item_name and item_name in items:
         items.pop(item_name)
         session['items'] = items
-        session.modified = True
         flash(f"{item_name} has been removed!!")
     else:
         flash('No item was removed. Please type an item from the list.')
