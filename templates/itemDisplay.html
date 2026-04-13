@@ -1,19 +1,21 @@
 {% extends 'index.html' %}
 
 {% block body %}
-<h2>List of all Items</h2>
-<ul>
-    {% for name, item in items.items() %}
-    <li>{{ name }}:
-        {% for key, value in item.items() %}
-        {% if key == 'img' %}
-        <img src="{{file_location}}/{{value}}">
-        {% else %}
-        <span>{{key}} : {{value}}</span>
-        {% endif %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h2>List of all Items</h2>
+    <ul>
+        {% for name, item in items.items() %}
+        <li>{{ name }}:
+            {% for key, value in item.items() %}
+            {% if key == 'img' %}
+            <img src="{{file_location}}/{{value}}">
+            {% else %}
+            <span>{{key}} : {{value}}</span>
+            {% endif %}
 
+            {% endfor %}
+        </li>
         {% endfor %}
-    </li>
-    {% endfor %}
-</ul>
+    </ul>
+</div>
 {% endblock %}

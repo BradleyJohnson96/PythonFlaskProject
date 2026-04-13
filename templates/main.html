@@ -1,5 +1,22 @@
 {% extends 'index.html' %}
 
 {% block body %}
-<h3 class="text-primary">Welcome to the website</h3>
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal text-body-emphasis">OSRS Item Tracker</h1>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p class="fs-5 text-body-secondary">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <p class="fs-5 text-body-secondary">This website is designed to help Old School RuneScape players <br>
+        track, organize, and showcase their item collections.
+        Browse items, monitor your achievements, and stay motivated <br>
+        as you build your collection across Gielinor.
+    </p>
+</div>
+
 {% endblock %}
