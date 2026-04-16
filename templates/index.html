@@ -6,35 +6,20 @@
     <title>OSRS Item Tracker</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="pricing.css" rel="stylesheet">
 </head>
 
-<body class='bg-danger'>
-    <h2 class="text-warning">OSRS Item Tracker</h2>
-
-    <nav class="navbar navbar-expand-sm bg-dark">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/addItem">Add Item</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="itemDisplay">Item Collection</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="removeItems">Remove item</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- 
-    <a href="/">Home</a>
-    <a href="/addItem">Add Item</a>
-    <a href="/itemDisplay">Item Collection</a>
-    <a href="/removeItems">Remove Item</a> -->
-
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal">OSRS Item Tracker</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/">Home</a>
+            <a class="p-2 text-dark" href="/addItem">Add Item</a>
+            <a class="p-2 text-dark" href="itemDisplay">Item Collection</a>
+            <a class="p-2 text-dark" href="removeItems">Remove item</a>
+        </nav>
+    </div>
+   
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
