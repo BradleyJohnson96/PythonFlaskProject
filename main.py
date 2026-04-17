@@ -15,7 +15,7 @@ file_save_location = "static/images"
 @app.route('/')
 def homePage():
     if "items" not in session:
-        flash("Welcome to the site, please add a item to get started!!")
+        flash("Since this is your first time, Add an item to get started!")
     return render_template("main.html")
 
 @app.route('/itemDisplay')

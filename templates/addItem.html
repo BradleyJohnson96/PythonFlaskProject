@@ -1,25 +1,22 @@
 {% extends 'index.html' %}
 
 {% block body %}
-<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h3 class="fs-5 text-body-secondary">Enter the item you'd like to add.</h3>
-    <form method="POST" action="/addItem" enctype="multipart/form-data">
-        <p>Item Name</p>
-        <input type="text" name="item" required>
-        <br><br>
-        <p>Boss Name</p>
-        <input type="text" name="boss_name" required>
-        <br><br>
-        <p>Drop Rate</p>
-        <input type="text" name="drop_rate" required>
-        <br><br>
-        <p>Kill Count</p>
-        <input type="text" name="kill_count" required>
-        <br><br>
-        <input type="file" name="item_img" required>
-        <br><br>
-        <input class="btn btn-primary" type="submit" value="Submit">
-        <!-- <button type="submit" value="Submit" class="w-100 btn btn-lg btn-outline-primary">Press to add</button> -->
-    </form>
-</div>
+<h3>Enter the item you'd like to add.</h3>
+<form method="POST" action="/addItem" enctype="multipart/form-data">
+    <p>Item Name</p>
+    <input type="text" name="item" required>
+    <br><br>
+    <p>Boss Name</p>
+    <input type="text" name="boss_name" required>
+    <br><br>
+    <p>Drop Rate</p>
+    <input type="text" name="drop_rate" required>
+    <br><br>
+    <p>Kill Count</p>
+    <input type="text" name="kill_count" required>
+    <br><br>
+    <input type="file" name="item_img" required>
+    <br><br>
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
 {% endblock %}
