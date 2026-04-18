@@ -11,6 +11,9 @@
         <li>
             <strong>{{ name }}</strong> - Boss: {{ item.boss_name }}, Drop Rate: {{ item.drop_rate }}, Kill Count: {{
             item.kill_count }}
+            {% if item.img %}
+            <img src="{{ url_for('static', filename='images/' + item.img) }}" class="itemImg">
+            {% endif %}
             <form method="POST" action="/removeItems" style="display: inline;">
                 <input type="hidden" name="item_name" value="{{ name }}">
                 <input type="submit" value="Remove" class="btn btn-danger btn-sm">
