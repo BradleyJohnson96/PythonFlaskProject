@@ -61,7 +61,7 @@ def removeItems():
         session['items'] = items
         flash(f"{item_name} has been removed!!")
     else:
-        flash('No item was removed. Please type an item from the list.')
+        flash('No item was removed.')
 
     return render_template('removeItems.html', items=items)
 
